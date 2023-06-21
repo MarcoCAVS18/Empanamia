@@ -4,7 +4,7 @@ import ItemCount from "../ItemCount/ItemCount";
 const Item = ({ id, name, img, price, stock }) => {
     return (
       <article className="border-2 border-gray rounded-lg text-left flex-col shadow-2xl">
-        <div className="w-60 h-60 rounded-t-lg overflow-hidden">
+        <div className="h-60 rounded-t-lg overflow-hidden">
           <img src={img} alt={name} className="w-full h-full object-cover" />
         </div>
   

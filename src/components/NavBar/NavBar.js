@@ -16,11 +16,11 @@ function NavBar() {
         <div className="flex items-center justify-between h-24">
           <div className="flex items-center">
             <img
-              className="h-20 w-auto"
+              className={`h-20 w-auto nav-logo ${isMobileMenuOpen ? "h-10" : ""}`}
               src={image}
               alt="Logo"
             />
-            <h1 className="text-3xl font-sans font-semibold pl-4 select-none tracking-widest text-white">
+            <h1 className={`text-3xl font-sans font-semibold pl-4 select-none tracking-widest text-white nav-title ${isMobileMenuOpen ? "text-2xl" : ""}`}>
               Empanamía
             </h1>
           </div>
@@ -51,7 +51,7 @@ function NavBar() {
           </div>
         </div>
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4">
+          <div className="md:hidden pb-4">
             <div className="flex flex-col space-y-4">
               <NavButtons />
             </div>

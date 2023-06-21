@@ -10,3 +10,23 @@
 
 }
 
+@media (max-width: 768px) {
+
+  .nav-logo {
+    height: 60px;
+  }
+
+  .nav-title {
+    font-size: 24px;
+  }
+
+  .nav-icons {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  
+}
+
+
