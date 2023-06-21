@@ -3,3 +3,9 @@
 @tailwind utilities;
 @import '~@fortawesome/fontawesome-svg-core/styles.css';
   
+.stroke {
+        /* Prefix required. Even Firefox only supports the -webkit- prefix */
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #f8a9d1;
+
+}
