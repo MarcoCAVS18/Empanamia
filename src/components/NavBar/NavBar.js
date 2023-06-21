@@ -12,26 +12,29 @@ function NavBar() {
 
   return (
     <nav className="bg-blue">
-      <div className="max-w-8xl mx-auto px-8 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-8 sm:px-8 lg:px-8">
         <div className="flex items-center justify-between h-24">
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <img
               className={`h-20 w-auto nav-logo ${isMobileMenuOpen ? "h-10" : ""}`}
               src={image}
               alt="Logo"
             />
-            <h1 className={`text-3xl font-sans font-semibold pl-4 select-none tracking-widest text-white nav-title ${isMobileMenuOpen ? "text-2xl" : ""}`}>
+            <h1 className={`text-3xl font-sans font-semibold pl-2 select-none tracking-widest text-white nav-title ${isMobileMenuOpen ? "text-2xl" : ""}`}>
               Empanamía
             </h1>
           </div>
           <div className="hidden md:flex items-center space-x-4">
             <NavButtons />
-            <CartWidget /> {/* Mueve el componente CartWidget aquí */}
+            <CartWidget />
           </div>
           <div className="md:hidden flex items-center">
-            <CartWidget /> {/* Mueve el componente CartWidget aquí */}
+            <div className="mr-2">
+              <CartWidget />
+            </div>
+            
             <button
-              className="text-white focus:outline-none pl-6"
+              className="text-white focus:outline-none ml-2"
               onClick={toggleMobileMenu}
             >
               <svg
@@ -50,6 +53,9 @@ function NavBar() {
             </button>
           </div>
         </div>
+
+{/*         MENU DESPLEGABLE CON SUS RESPECTIVOS BOTONES */}
+
         {isMobileMenuOpen && (
           <div className="md:hidden pb-4">
             <div className="flex flex-col space-y-4">
@@ -58,11 +64,6 @@ function NavBar() {
           </div>
         )}
       </div>
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-100">
-          {/* Remueve el componente CartWidget aquí */}
-        </div>
-      )}
     </nav>
   );
 }

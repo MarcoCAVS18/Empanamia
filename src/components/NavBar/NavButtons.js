@@ -4,7 +4,7 @@ function NavButtons() {
   const buttonLabels = ["Todas", "Fritas", "Al horno", "Destacadas"];
 
   return (
-    <div className="ml-10 flex flex-col md:flex-row items-center space-x-0 md:space-x-6 md:space-y-0 md:items-center md:space-y-0">
+    <div className="flex flex-col md:flex-row items-center space-x-0 md:space-x-6 md:space-y-0 md:items-center md:space-y-0">
       {buttonLabels.map((label, index) => (
         <button
           key={index}
