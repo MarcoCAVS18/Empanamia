@@ -19,7 +19,7 @@ const products = [
 
     {
         id: "3",
-        name: "Berengenas",
+        name: "Berenjenas",
         price: 1200,
         img: "https://i.postimg.cc/wTXfSxRg/Sin-t-tulo-7.jpg",
         stock: 25,

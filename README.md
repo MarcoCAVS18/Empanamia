@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 # empanamia
- 
-=======
-# Empanamia-Market
->>>>>>> 440b942c21ec16ad3a7b3e267bee5f5257d0c9c5
+![Logotipo](https://i.postimg.cc/65QXtkVt/Mesa-de-trabajo-2.png)
+
+# previsualizacion
+![Previsualizacion](https://i.postimg.cc/15M3K0B5/Shared-Screenshot.jpg)
