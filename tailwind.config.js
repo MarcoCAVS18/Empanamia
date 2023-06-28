@@ -38,6 +38,7 @@ module.exports = {
       "gray-200": "#e5e7eb",
       "gray-500": "#6b7280",
       "gray-700": "#374151",
+      "red-600": "#dc2626",
     },
 
     extend: {},
