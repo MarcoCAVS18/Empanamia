@@ -14,7 +14,7 @@ const products = [
         price: 1000,
         img: "https://i.postimg.cc/htMCtC0Y/Sin-t-tulo-6.jpg",
         stock: 25,
-        description: "Descripcion de la empanada CP"
+        description: "Nuestra Empanada Picante es perfecta para aquellos amantes del picante que buscan una experiencia culinaria emocionante. Es ideal para aquellos que disfrutan de un toque audaz en su comida y están dispuestos a dejarse llevar por la aventura del sabor."
     },
 
     {
@@ -23,9 +23,19 @@ const products = [
         price: 1200,
         img: "https://i.postimg.cc/wTXfSxRg/Sin-t-tulo-7.jpg",
         stock: 25,
-        description: "Descripcion de la empanada BE"
+        description: "El relleno de nuestra Empanada de Berenjenas Especia es una combinación ingeniosa de berenjenas tiernas y especias selectas que despiertan tus sentidos. Cada bocado te transporta a un mundo de sabores cautivadores y te envuelve en una sinfonía de aromas irresistibles"
 
-    }
+    },
+
+    {
+        id: "4",
+        name: "Jamon y Queso",
+        price: 800,
+        img: "https://i.postimg.cc/wTXfSxRg/Sin-t-tulo-7.jpg",
+        stock: 25,
+        description: "El relleno de nuestra Empanada de Berenjenas Especia es una combinación ingeniosa de berenjenas tiernas y especias selectas que despiertan tus sentidos. Cada bocado te transporta a un mundo de sabores cautivadores y te envuelve en una sinfonía de aromas irresistibles"
+
+    },
 
 ]
 
@@ -33,7 +43,7 @@ export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products)
-        }, 500)
+        }, 2000)
 
 
     })
@@ -43,6 +53,6 @@ export const getProductsByID = (productID) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products.find(prod => prod.id === productID))
-        }, 500);
+        }, 2000);
     })
 }

@@ -1,5 +1,3 @@
-
-
 function NavButtons() {
   const buttonLabels = ["Todas", "Fritas", "Al horno", "Destacadas"];
 
@@ -18,3 +16,8 @@ function NavButtons() {
 }
 
 export default NavButtons;
+
+
+
+
+
