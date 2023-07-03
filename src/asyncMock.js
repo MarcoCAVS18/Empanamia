@@ -1,6 +1,7 @@
 const products = [
     {
         id: "1",
+        category: "al horno",
         name: "Carne suave",
         price: 1000,
         img: "https://i.postimg.cc/tCQvSnTB/Sin-t-tulo-5.jpg",
@@ -10,6 +11,7 @@ const products = [
 
     {
         id: "2",
+        category: "fritas",
         name: "Carne picante",
         price: 1000,
         img: "https://i.postimg.cc/htMCtC0Y/Sin-t-tulo-6.jpg",
@@ -19,6 +21,7 @@ const products = [
 
     {
         id: "3",
+        category: "fritas",
         name: "Berenjenas",
         price: 1200,
         img: "https://i.postimg.cc/wTXfSxRg/Sin-t-tulo-7.jpg",
@@ -29,15 +32,25 @@ const products = [
 
     {
         id: "4",
+        category: "destacadas",
         name: "Jamon y Queso",
         price: 800,
-        img: "https://i.postimg.cc/wTXfSxRg/Sin-t-tulo-7.jpg",
+        img: "https://i.postimg.cc/RFRmjBW2/Mesa-de-trabajo-1.png",
         stock: 25,
         description: "El relleno de nuestra Empanada de Berenjenas Especia es una combinación ingeniosa de berenjenas tiernas y especias selectas que despiertan tus sentidos. Cada bocado te transporta a un mundo de sabores cautivadores y te envuelve en una sinfonía de aromas irresistibles"
 
     },
 
 ]
+
+export const getProductsByCategory = (category) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products.filter(product => product.category === category))
+        }, 2000)
+
+    })
+}
 
 export const getProducts = () => {
     return new Promise((resolve) => {
