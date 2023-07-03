@@ -19,14 +19,14 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     <div className="flex flex-col items-center">
       <div className="flex items-center mb-2 gap-3 pb-2">
         <button
-          className="text-blue px-4 py-1 rounded-full border-2"
+          className="text-blue px-4 py-1 rounded-full border-4 font-medium"
           onClick={decrement}
         >
           -
         </button>
-        <div className="text-blue px-8 py-1 rounded-full border-2">{quantity}</div>
+        <div className="text-blue px-8 py-1 rounded-full border-4">{quantity}</div>
         <button
-          className="text-blue px-4 py-1 rounded-full border-2"
+          className="text-blue px-4 py-1 rounded-full border-4 font-medium"
           onClick={increment}
         >
           +
