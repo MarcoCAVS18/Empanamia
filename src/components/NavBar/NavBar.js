@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ReactComponent as Logo } from './Mesa de trabajo 2.svg';
 import CartWidget from '../CartWidget/CartWidget';
 import NavButtons from './NavButtons';
+import { Link } from "react-router-dom";
 
 function NavBar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,6 +48,7 @@ function NavBar() {
                 />
               </svg>
             </button>
+            <Link to="/">
             <div className="flex items-center">
               <Logo className="h-20 w-auto nav-logo hidden md:block" />
               <h1
@@ -57,7 +59,9 @@ function NavBar() {
                 Empanamía
               </h1>
             </div>
+            </Link>
           </div>
+          
           <div className="hidden md:flex items-center space-x-4 ml-auto">
             <NavButtons />
             <CartWidget />
