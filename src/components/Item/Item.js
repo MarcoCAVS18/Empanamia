@@ -1,12 +1,13 @@
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import { CartContext } from "../../context/CartContext";
 
 const Item = ({ id, name, img, price, stock }) => {
+  const { addItem } = useContext(CartContext);
   const [quantityAdded, setQuantityAdded] = useState(0);
   const [showItemCount, setShowItemCount] = useState(true);
   const [lastSelectedQuantity, setLastSelectedQuantity] = useState(1);
-
 
   const handleOnAdd = (quantity) => {
     setQuantityAdded(quantity);
@@ -15,6 +16,15 @@ const Item = ({ id, name, img, price, stock }) => {
   };
 
   const handleContinueShopping = () => {
+    setShowItemCount(true);
+    setQuantityAdded(0);
+    if (quantityAdded > 0) {
+      addItem({ id, name, img, price, stock }, quantityAdded);
+      setLastSelectedQuantity(quantityAdded);
+    }
+  };
+
+  const handleEdit = () => {
     setShowItemCount(true);
     setQuantityAdded(0);
   };
@@ -42,20 +52,27 @@ const Item = ({ id, name, img, price, stock }) => {
       <footer className="mt-auto">
         {quantityAdded > 0 ? (
           <>
-            <Link to="/cart">
-              <button className="w-full text-gray-700 font-medium px-4 py-4 rounded bg-pink text-white transition-all duration-300 hover:bg-red-600 hover:text-gray-200 hover:scale-105">
-                Continuar compra
-              </button>
-            </Link>
             <button
               className="w-full text-gray-500 font-medium px-4 py-4 rounded bg-gray-200 hover:bg-gray-300"
-              onClick={handleContinueShopping}
+              onClick={handleEdit}
             >
               EDITAR
             </button>
+            <Link to="/cart">
+              <button
+                className="w-full text-gray-700 font-medium px-4 py-4 rounded bg-pink text-white transition-all duration-300 hover:bg-red-600 hover:text-gray-200 hover:scale-105"
+                onClick={handleContinueShopping}
+              >
+                Continuar compra
+              </button>
+            </Link>
           </>
         ) : showItemCount ? (
-          <ItemCount initial={lastSelectedQuantity} stock={stock} onAdd={handleOnAdd}>
+          <ItemCount
+            initial={lastSelectedQuantity}
+            stock={stock}
+            onAdd={handleOnAdd}
+          >
             Agregar al carrito
           </ItemCount>
         ) : (

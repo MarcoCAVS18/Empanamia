@@ -1,16 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 
-const ItemDetail = ({ name, img, category, description, price, stock }) => {
+import { CartContext } from "../../context/CartContext"
+
+const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   const [quantityAdded, setQuantityAdded] = useState(0);
   const [showItemCount, setShowItemCount] = useState(true);
   const [lastSelectedQuantity, setLastSelectedQuantity] = useState(1);
+
+  const { addItem } = useContext(CartContext)
 
   const handleOnAdd = (quantity) => {
     setQuantityAdded(quantity);
     setShowItemCount(false);
     setLastSelectedQuantity(quantity);
+
+    const item = {
+      id, name, price
+    }
+
+    addItem(item, quantity)
   };
 
   const handleContinueShopping = () => {
