@@ -89,4 +89,3 @@ const Item = ({ id, name, img, price, stock }) => {
 };
 
 export default Item;
-
