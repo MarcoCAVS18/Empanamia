@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPen, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
+import logo from "../../img/Mesa de trabajo 2.png";
+
 const Cart = () => {
   const { cart, clearCart, removeItem, editItemQuantity } =
     useContext(CartContext);
@@ -12,14 +14,12 @@ const Cart = () => {
 
   if (cart.length === 0) {
     navigate("/");
-    return null; 
+    return null;
   }
-
 
   const calculateItemTotal = (price, quantity) => {
     return price * quantity;
   };
-
 
   const calculateTotalPrice = () => {
     return cart.reduce(
@@ -42,14 +42,24 @@ const Cart = () => {
     setEditQuantityId(null);
   };
 
+  const handleCheckout = () => {
+    navigate("/checkout", { state: { totalPrice: calculateTotalPrice() } });
+  };
+
   return (
-    <div className="flex flex-col items-center p-4">
-      <div className="w-full max-w-md p-4 mb-4">
-        <h2 className="text-lg font-semibold mb-2">Productos seleccionados:</h2>
+    <div className="flex flex-col items-center p-16">
+      <div className="w-full max-w-md p-4 mb-4 border border-gray rounded shadow-2xl">
+        <div className="flex justify-center pb-6">
+          <img
+            src={logo}
+            alt="Empanamia"
+            className="rounded-full w-16 h-16 -mt-12"
+          />
+        </div>
         {cart.map((product) => (
           <div
             key={product.id}
-            className="flex items-center mb-2 border border-gray rounded-large p-4 shadow-2xl"
+            className="flex items-center mb-2 border border-gray rounded p-4"
           >
             <img
               src={product.img}
@@ -72,10 +82,10 @@ const Cart = () => {
                       }
                       className="w-8 h-8 rounded-md ml-1 border-none"
                       style={{
-                        outline: 'none',
-                        boxShadow: '0 0 0 2px #9dd6e5',
-                        textAlign: 'center'
-                    }}
+                        outline: "none",
+                        boxShadow: "0 0 0 2px #9dd6e5",
+                        textAlign: "center",
+                      }}
                     />
                   </p>
                   <button
@@ -104,32 +114,40 @@ const Cart = () => {
             </div>
             <FontAwesomeIcon
               icon={faTrash}
-              className="cursor-pointer ml-auto text-blue mr-2 text-2xl"
+              className="cursor-pointer ml-auto text-blue mr-2 text-2xl outline-none focus:ring-4 transform active:scale-75 transition-transform"
               onClick={() => handleRemoveItem(product.id)}
             />
           </div>
         ))}
       </div>
 
-      {/* Total */}
+      {/* Botones */}
       <div className="w-full max-w-md mb-4">
         <div className="flex justify-center">
-          <span>Total: </span>
-          <span> ${calculateTotalPrice()}</span>
+          <button
+            className="mr-2 px-4 py-2 text-white bg-pink hover:text-white font-semibold rounded outline-none focus:ring-4 shadow-lg transform active:scale-75 transition-transform"
+            onClick={clearCart}
+          >
+            VACIAR
+          </button>
+
+          <button
+            onClick={handleCheckout}
+            className="mr-2 px-4 py-2 text-white bg-pink hover:text-white font-semibold rounded outline-none focus:ring-4 shadow-lg transform active:scale-75 transition-transform"
+          >
+            CONTINUAR
+          </button>
         </div>
       </div>
 
-      {/* Botones */}
-      <div className="w-full max-w-md flex justify-center">
-        <button
-          className="mr-2 px-4 py-2 text-gray-700 hover:bg-pink hover:text-white font-semibold rounded"
-          onClick={clearCart}
-        >
-          VACIAR
-        </button>
-        <button className="mr-2 px-4 py-2 text-gray-700 hover:bg-pink hover:text-white font-semibold rounded">
-          CONTINUAR
-        </button>
+      {/* Total */}
+      <div className="w-full max-w-md mb-4 pt-2">
+        <div className="flex justify-center uppercase">
+          <span className="mr-4 pt-2">Total:</span>
+          <div className="font-semibold bg-blue px-4 py-2 rounded-lg text-white">
+            $ {calculateTotalPrice()}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -58,14 +58,12 @@ const Item = ({ id, name, img, price, stock }) => {
             >
               EDITAR
             </button>
-            <Link to="/cart">
               <button
                 className="w-full text-gray-700 font-medium px-4 py-4 rounded bg-pink text-white transition-all duration-300 hover:bg-red-600 hover:text-gray-200 hover:scale-105"
                 onClick={handleContinueShopping}
               >
-                Continuar compra
+                Confirmar pedido
               </button>
-            </Link>
           </>
         ) : showItemCount ? (
           <ItemCount
