@@ -6,25 +6,33 @@ import { Link } from "react-router-dom";
 
 function CartWidget() {
   const { cartCount } = useContext(CartContext);
-  const [itemCount, setItemCount] = useState(); 
+  const [itemCount, setItemCount] = useState();
 
   useEffect(() => {
     setItemCount(cartCount);
   }, [cartCount]);
 
+  const cartIsEmpty = itemCount === 0;
+
   return (
-    <Link to="/cart">
-    <button className="text-white hover:text-pink-300 relative">
-      <FontAwesomeIcon
-        icon={faShoppingCart}
-        className="text-white text-xl p-2 hover:text-pink-300 pb-1"
-      />
-      {itemCount >= 0 && (
-        <span className="bg-pink text-white text-base rounded-full px-2 absolute -top-2 -right-2">
+    <Link to={cartIsEmpty ? "#" : "/cart"}>
+      <button
+        className={`text-white hover:text-pink-300 relative ${
+          cartIsEmpty ? "cursor-default" : "cursor-pointer"
+        }`}
+      >
+        <FontAwesomeIcon
+          icon={faShoppingCart}
+          className="text-white text-xl p-2 hover:text-pink-300 pb-1"
+        />
+        <span
+          className={`bg-pink text-white text-base rounded-full px-2 absolute -top-2 -right-2 ${
+            cartIsEmpty ? "opacity-50" : ""
+          }`}
+        >
           {itemCount}
         </span>
-      )}
-    </button>
+      </button>
     </Link>
   );
 }
