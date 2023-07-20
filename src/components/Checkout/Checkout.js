@@ -14,23 +14,16 @@ import {
 } from "firebase/firestore";
 import OrderConfirmation from "../OrderConfirmation/OrderConfirmation";
 
-
 const Checkout = () => {
-  // const [loading, setLoading] = useState(false);
   const [orderId, setOrderId] = useState("");
-  // const [error, setError] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const { cart, total, clearCart } = useContext(CartContext);
 
   const createOrder = async ({ name, phone, email }) => {
-    // setLoading(true);
-
     try {
-
       const validProducts = cart.filter((product) => product.quantity > 0);
 
-      
       if (!Number.isNaN(total) && Number.isFinite(total)) {
         const objOrder = {
           buyer: {
@@ -39,7 +32,7 @@ const Checkout = () => {
             email,
           },
           items: validProducts,
-          total: total, 
+          total: total,
           date: Timestamp.fromDate(new Date()),
         };
 
@@ -77,19 +70,13 @@ const Checkout = () => {
           clearCart();
           setShowConfirmation(true);
         } else {
-          // setLoading(false);
           return;
         }
       } else {
-        // setLoading(false);
         return;
       }
     } catch (error) {
-      // setError(
-      //   "Error."
-      // );
-    } finally {
-      // setLoading(false);
+      // Handle the error, if needed
     }
   };
 
@@ -105,5 +92,4 @@ const Checkout = () => {
 };
 
 export default Checkout;
-
 
