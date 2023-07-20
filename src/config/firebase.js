@@ -4,13 +4,13 @@
 
 
   const firebaseConfig = {
-    apiKey: process.env.REACT_APP_apiKey,
-    authDomain: process.env.REACT_APP_authDomain,
-    projectId: process.env.REACT_APP_projectId,
-    storageBucket: process.env.REACT_APP_storageBucket,
-    messagingSenderId: process.env.REACT_APP_messagingSenderId,
-    appId: process.env.REACT_APP_appId,
-    measurementId: process.env.REACT_APP_measurementId,
+    apiKey: "AIzaSyDlzvJd3XcuZkqjq4gHwDqZZ1yJX3ql9Sc",
+    authDomain: "empanamia-1ed0e.firebaseapp.com",
+    projectId: "empanamia-1ed0e",
+    storageBucket: "empanamia-1ed0e.appspot.com",
+    messagingSenderId: "305128052665",
+    appId: "1:305128052665:web:e00ebcd432cec6f36d0868",
+    measurementId: "G-QDHDW0RRNY"
   };
 
   const app = initializeApp(firebaseConfig);
