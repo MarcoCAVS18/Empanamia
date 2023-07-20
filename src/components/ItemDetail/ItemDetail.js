@@ -1,7 +1,9 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import { db } from "../../config/firebase";
+import { doc, updateDoc } from "firebase/firestore";
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   const [quantityAdded, setQuantityAdded] = useState(0);
@@ -9,6 +11,10 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   const [lastSelectedQuantity, setLastSelectedQuantity] = useState(1);
 
   const { addItem } = useContext(CartContext);
+
+  useEffect(() => {
+    setQuantityAdded(lastSelectedQuantity);
+  }, [lastSelectedQuantity]);
 
   const handleOnAdd = (quantity) => {
     setQuantityAdded(quantity);
@@ -28,9 +34,23 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
         name,
         img,
         price,
-        stock
+        stock,
+        category
       };
       addItem(item, quantityAdded);
+    }
+  };
+
+  const handleEdit = async () => {
+    setShowItemCount(true);
+    setQuantityAdded(0);
+    try {
+      const productRef = doc(db, "products", id);
+      await updateDoc(productRef, {
+        stock: stock - quantityAdded
+      });
+    } catch (error) {
+      // console.log(error);
     }
   };
 
@@ -63,7 +83,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                 <>
                   <button
                     className="w-full text-gray-500 font-medium px-4 py-4 rounded bg-gray-200 hover:bg-gray-300"
-                    onClick={handleContinueShopping}
+                    onClick={handleEdit}
                   >
                     EDITAR
                   </button>

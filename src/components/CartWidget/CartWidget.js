@@ -5,12 +5,13 @@ import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
 function CartWidget() {
-  const { cartCount } = useContext(CartContext);
-  const [itemCount, setItemCount] = useState();
+  const { cart } = useContext(CartContext);
+  const [itemCount, setItemCount] = useState(0);
 
   useEffect(() => {
-    setItemCount(cartCount);
-  }, [cartCount]);
+    const totalItems = cart.reduce((total, product) => total + product.quantity, 0);
+    setItemCount(totalItems);
+  }, [cart]);
 
   const cartIsEmpty = itemCount === 0;
 

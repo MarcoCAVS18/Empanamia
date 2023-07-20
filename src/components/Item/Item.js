@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../../context/CartContext";
 
-const Item = ({ id, name, img, price, stock }) => {
+const Item = ({ id, name, img, price, stock , category }) => {
   const { addItem } = useContext(CartContext);
   const [quantityAdded, setQuantityAdded] = useState(0);
   const [showItemCount, setShowItemCount] = useState(true);
@@ -19,7 +19,7 @@ const Item = ({ id, name, img, price, stock }) => {
     setShowItemCount(true);
     setQuantityAdded(0);
     if (quantityAdded > 0) {
-      addItem({ id, name, img, price, stock }, quantityAdded);
+      addItem({ id, name, img, price, stock, category }, quantityAdded);
       setLastSelectedQuantity(quantityAdded);
     }
   };

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProducts, getProductsByCategory } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
-import SpinnerSVG from "./Spinner-1s-200px.svg";
+import SpinnerSVG from "../../img/Spinner-1s-200px.svg";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -11,27 +11,22 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    if (categoryID) {
-      getProductsByCategory(categoryID)
-        .then(response => {
-          setProducts(response);
-          setIsLoading(false);
-        })
-        .catch(error => {
-          console.log(error);
-          setIsLoading(false);
-        });
-    } else {
-      getProducts()
-        .then(response => {
-          setProducts(response);
-          setIsLoading(false);
-        })
-        .catch(error => {
-          console.log(error);
-          setIsLoading(false);
-        });
-    }
+    const fetchProducts = async () => {
+      try {
+        if (categoryID) {
+          const productList = await getProductsByCategory(categoryID);
+          setProducts(productList);
+        } else {
+          const productList = await getProducts();
+          setProducts(productList);
+        }
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProducts();
   }, [categoryID]);
 
   return (

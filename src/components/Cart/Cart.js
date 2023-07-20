@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPen, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
-import logo from "../../img/Mesa de trabajo 2.png";
+import logo from "../../img/logo.png";
 
 const Cart = () => {
   const { cart, clearCart, removeItem, editItemQuantity } =
@@ -48,7 +48,7 @@ const Cart = () => {
 
   return (
     <div className="flex flex-col items-center p-16">
-      <div className="w-full max-w-md p-4 mb-4 border border-gray rounded shadow-2xl">
+      <div className="w-full max-w-lg p-2 sm:p-4 p-4 mb-4 border border-gray rounded shadow-2xl">
         <div className="flex justify-center pb-6">
           <img
             src={logo}
@@ -68,7 +68,6 @@ const Cart = () => {
             />
             <div>
               <p className="font-medium">{product.name}</p>
-              <p className="font-medium">{product.category}</p>
               {editQuantityId === product.id ? (
                 <div className="flex items-center">
                   <p className="text-gray-700">

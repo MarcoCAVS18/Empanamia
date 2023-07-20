@@ -4,29 +4,9 @@
 @import '~@fortawesome/fontawesome-svg-core/styles.css';
   
 .stroke {
-        /* Prefix required. Even Firefox only supports the -webkit- prefix */
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: #f8a9d1;
 
-}
-
-@media (max-width: 768px) {
-
-  .nav-logo {
-    height: 60px;
-  }
-
-  .nav-title {
-    font-size: 24px;
-  }
-
-  .nav-icons {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-  }
-
-  
 }
 
 ::-webkit-scrollbar {
@@ -75,3 +55,24 @@
   transform: rotate(-45deg);
   letter-spacing: 4px;
 }
+
+@media (max-width: 768px) {
+
+  .nav-logo {
+    height: 60px;
+  }
+
+  .nav-title {
+    font-size: 24px;
+  }
+
+  .nav-icons {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  
+}
+
+

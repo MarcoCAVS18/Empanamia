@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ReactComponent as Logo } from './Mesa de trabajo 2.svg';
+import { ReactComponent as Logo } from '../../img/isologo.svg';
 import CartWidget from '../CartWidget/CartWidget';
 import NavButtons from './NavButtons';
 import { Link } from "react-router-dom";
