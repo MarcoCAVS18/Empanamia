@@ -12,6 +12,8 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
   const { addItem } = useContext(CartContext);
 
+  console.log(description)
+
   useEffect(() => {
     setQuantityAdded(lastSelectedQuantity);
   }, [lastSelectedQuantity]);
@@ -35,7 +37,8 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
         img,
         price,
         stock,
-        category
+        category,
+        description
       };
       addItem(item, quantityAdded);
     }
@@ -55,7 +58,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   };
 
   return (
-    <div className="container mx-auto py-4 w-3/5">
+    <div className="mx-auto py-4 lg:w-3/5 w-full">
       <article className="grid grid-cols-1 lg:grid-cols-2 gap-4 border-gray rounded-lg p-4 shadow-2xl">
         <div className="h-64 lg:h-auto overflow-hidden">
           <img src={img} alt={name} className="w-full h-full object-cover rounded-md" />
