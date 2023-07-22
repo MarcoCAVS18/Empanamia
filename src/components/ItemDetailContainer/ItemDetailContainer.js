@@ -23,8 +23,6 @@ const ItemDetailContainer = () => {
       });
   }, [itemID]);
 
-  console.log(product)
-
   if (error) {
     return (
       <div>

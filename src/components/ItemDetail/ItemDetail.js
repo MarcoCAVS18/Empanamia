@@ -12,8 +12,6 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
   const { addItem } = useContext(CartContext);
 
-  console.log(description)
-
   useEffect(() => {
     setQuantityAdded(lastSelectedQuantity);
   }, [lastSelectedQuantity]);
