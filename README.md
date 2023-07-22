@@ -19,5 +19,8 @@ Empanamia is built using the following technologies:
 ![Screenshot 1](https://i.postimg.cc/15M3K0B5/Shared-Screenshot.jpg)
 ![Screenshot 2](https://i.postimg.cc/fLbN6zky/Mesa-de-trabajo-1.png)
 ![Screenshot 3](https://i.postimg.cc/SR2pxg6p/Mesa-de-trabajo-1-copia.png)
-![Screenshot 4](https://i.postimg.cc/7hFrGS9J/Mesa-de-trabajo-1-copia-2.png)
+
+## Logotipo
+
+![Logotipo](https://i.postimg.cc/65QXtkVt/Mesa-de-trabajo-2.png)
 
