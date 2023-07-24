@@ -9,7 +9,7 @@ import logo from "../../img/logo.png";
 const Cart = () => {
   const { cart, clearCart, removeItem, editItemQuantity } =
     useContext(CartContext);
-  const navigate = useNavigate(); // Mueve useNavigate fuera del bloque condicional
+  const navigate = useNavigate(); 
   const [editQuantityId, setEditQuantityId] = useState(null);
 
   const calculateItemTotal = (price, quantity) => {
