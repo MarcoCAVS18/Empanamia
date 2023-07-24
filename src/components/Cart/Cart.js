@@ -9,13 +9,8 @@ import logo from "../../img/logo.png";
 const Cart = () => {
   const { cart, clearCart, removeItem, editItemQuantity } =
     useContext(CartContext);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Mueve useNavigate fuera del bloque condicional
   const [editQuantityId, setEditQuantityId] = useState(null);
-
-  if (cart.length === 0) {
-    navigate("/");
-    return null;
-  }
 
   const calculateItemTotal = (price, quantity) => {
     return price * quantity;
@@ -45,6 +40,11 @@ const Cart = () => {
   const handleCheckout = () => {
     navigate("/checkout", { state: { totalPrice: calculateTotalPrice() } });
   };
+
+  if (cart.length === 0) {
+    navigate("/");
+    return null;
+  }
 
   return (
     <div className="flex flex-col items-center p-16">
@@ -153,3 +153,4 @@ const Cart = () => {
 };
 
 export default Cart;
+
