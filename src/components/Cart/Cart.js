@@ -9,7 +9,7 @@ import logo from "../../img/logo.png";
 const Cart = () => {
   const { cart, clearCart, removeItem, editItemQuantity } =
     useContext(CartContext);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [editQuantityId, setEditQuantityId] = useState(null);
 
   const calculateItemTotal = (price, quantity) => {
@@ -107,7 +107,7 @@ const Cart = () => {
                 </p>
               )}
 
-              <p className="text-gray-700">
+              <p className="text-gray-700 uppercase">
                 Total: ${calculateItemTotal(product.price, product.quantity)}
               </p>
             </div>
