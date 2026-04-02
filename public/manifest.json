@@ -1,0 +1,17 @@
+{
+  "short_name": "Empanamía",
+  "name": "Empanamía - Empanadas Online",
+  "description": "Pedí tus empanadas favoritas online",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#f8a9d1",
+  "background_color": "#fcfffe",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
