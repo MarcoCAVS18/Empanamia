@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '~@fortawesome/fontawesome-svg-core/styles.css';
+  
+.stroke {
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #f8a9d1;
+
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9dd6e5;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay:hover {
+  opacity: 1;
+}
+
+.overlay span {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: semibold;
+  transform: rotate(-45deg);
+  letter-spacing: 4px;
+}
+
+@media (max-width: 768px) {
+
+  .nav-logo {
+    height: 60px;
+  }
+
+  .nav-title {
+    font-size: 24px;
+  }
+
+  .nav-icons {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  
+}
+
+
